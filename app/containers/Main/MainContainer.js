@@ -3,9 +3,9 @@ import React from 'react'
 const MainContainer = React.createClass({
   render () {
     return (
-      <p>Hello Word!</p>
+      <p>{'Que onda vato loko'}</p>
     )
-  }
+  },
 })
 
 export default MainContainer

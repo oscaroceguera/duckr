@@ -1,9 +1,9 @@
 import React from 'react'
-import { Router, Route, hasHistory } from 'react-router'
-import { MainContainer } from '../containers'
+import { Router, hashHistory } from 'react-router'
+import { MainContainer } from 'containers'
 
 const routes = (
-  <Router history={hasHistory}>
+  <Router history={hashHistory}>
     <Router path='/' component={MainContainer} />
   </Router>
 )
