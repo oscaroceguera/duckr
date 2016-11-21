@@ -8,7 +8,7 @@ const HomeContainer = React.createClass({
         <Home />
       </div>
     )
-  },
+  }
 })
 
 export default HomeContainer
