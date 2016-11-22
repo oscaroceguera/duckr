@@ -10,11 +10,15 @@ const AuthenticateContainer = React.createClass({
     error: PropTypes.string.isRequired,
     fetchAndHandleAuthedUser: PropTypes.func.isRequired
   },
-  handleAuth () {
+  contextTypes: {
+    router: PropTypes.object.isRequired
+  },
+  handleAuth (e) {
+    e.preventDefault()
     this.props.fetchAndHandleAuthedUser()
+      .then(() => this.context.router.replace('feed'))
   },
   render () {
-    console.log('isFetching',this.props.isFetching);
     return (
       <Authenticate
         isFetching={this.props.isFetching}
