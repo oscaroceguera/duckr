@@ -30,10 +30,7 @@
 
 
 //Listeners
-{
-  type: ADD_LISTENER,
-  listenerId,
-}
+
 
 
 //Modal

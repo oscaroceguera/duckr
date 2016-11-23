@@ -57,7 +57,7 @@ export function duckFanout (duck) {
   }
 }
 
-function addMultipleDucks (ducks) {
+export function addMultipleDucks (ducks) {
   return  {
     type: ADD_MULTIPLE_DUCKS,
     ducks,
