@@ -1,21 +1,20 @@
-export default function auth () {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      resolve({
-        name: 'Tyler McGinnis',
-        avatar: 'https://pbs.twimg.com/profile_images/378800000605536525/891a881bde93a1fc3e289528fb859b96_400x400.jpeg',
-        uid: 'oscarOcegeura'
-      })
-    }, 2000)
-  })
-}
+import { ref, firebaseAuth } from 'config/constants'
+import firebase from 'firebase'
 
+export default function auth () {
+  return firebaseAuth().signInWithPopup(new firebase.auth.FacebookAuthProvider())
+}
 
 export function checkIfAuthed (store) {
-  // Ignore Firebase.
-  return store.getState().isAuthed
+  return store.getState().isAuthed === true
 }
 
-export function logout() {
-  console.log('logged Out!');
+export function logout () {
+  return firebaseAuth().signOut()
+}
+
+export function saveUser (user) {
+  return ref.child(`users/${user.uid}`)
+    .set(user)
+    .then(() => user)
 }
