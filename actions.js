@@ -2,33 +2,6 @@
 
 
 // Ducks
-{
-  type: FETCHING_DUCK,
-}
-
-{
-  type: FETCHING_DUCK_ERROR,
-  error: 'Error fetching Duck',
-}
-
-{
-  type: FETCHING_DUCK_SUCCESS,
-  duck,
-}
-
-{
-  type: REMOVE_FETCHING,
-}
-
-{
-  type: ADD_DUCK,
-  duck,
-}
-
-{
-  type: ADD_MULTIPLE_DUCKS,
-  ducks,
-}
 
 
 // Feed
@@ -119,28 +92,6 @@
 
 
 //usersDucks
-{
-  type: FETCHING_USERS_DUCKS,
-  uid,
-}
-
-{
-  type: FETCHING_USERS_DUCKS_ERROR,
-  error: 'Error fetching Users Duck Ids',
-}
-
-{
-  type: FETCHING_USERS_DUCKS_SUCCESS,
-  uid,
-  duckIds,
-  lastUpdated,
-}
-
-{
-  type: ADD_SINGLE_USERS_DUCK,
-  uid,
-  duckId,
-}
 
 
 // usersLikes
