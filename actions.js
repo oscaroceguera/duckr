@@ -64,18 +64,7 @@
 
 
 //Modal
-{
-  type: OPEN_MODAL,
-}
 
-  {
-  type: CLOSE_MODAL,
-}
-
-{
-  type: UPDATE_DUCK_TEXT,
-  newDuckText,
-}
 
 
 //Replies
