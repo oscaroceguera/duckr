@@ -1,6 +1,6 @@
 import { addListener } from 'redux/modules/listeners'
-import { listenTofeed } from 'helpers/api'
-import {addMultipleDucks} from './ducks'
+import { listenToFeed } from 'helpers/api'
+import { addMultipleDucks } from 'redux/modules/ducks'
 
 const SETTING_FEED_LISTENER = 'SETTING_FEED_LISTENER'
 const SETTING_FEED_LISTENER_ERROR = 'SETTING_FEED_LISTENER_ERROR'
@@ -15,6 +15,7 @@ function settingFeedListener () {
 }
 
 function settingFeedListenerError (error) {
+  console.warn(error)
   return {
     type: SETTING_FEED_LISTENER_ERROR,
     error: 'Error fetching feeds.',
@@ -27,6 +28,7 @@ function settingFeedListenerSuccess (duckIds) {
     duckIds,
   }
 }
+
 
 function addNewDuckIdToFeed (duckId) {
   return {
@@ -41,7 +43,7 @@ export function resetNewDucksAvailable () {
   }
 }
 
-export function setHandleFeedListener() {
+export function setAndHandleFeedListener () {
   let initialFetch = true
   return function (dispatch, getState) {
     if (getState().listeners.feed === true) {
@@ -50,15 +52,13 @@ export function setHandleFeedListener() {
 
     dispatch(addListener('feed'))
     dispatch(settingFeedListener())
-
-    listenTofeed(({feeed, sortedIds}) => {
+    listenToFeed(({feed, sortedIds}) => {
       dispatch(addMultipleDucks(feed))
-      initialState === true
+      initialFetch === true
         ? dispatch(settingFeedListenerSuccess(sortedIds))
         : dispatch(addNewDuckIdToFeed(sortedIds[0]))
+      initialFetch = false
     }, (error) => dispatch(settingFeedListenerError(error)))
-
-
   }
 }
 

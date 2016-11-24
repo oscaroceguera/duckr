@@ -72,46 +72,10 @@
 
 
 // likeCount
-{
-  type: FETCHING_COUNT,
-}
 
-{
-  type: FETCHING_COUNT_ERROR,
-  error: 'Error fetching duck\'s like count',
-}
-
-{
-  type: FETCHING_COUNT_SUCCESS,
-  duckId,
-  count,
-}
 
 
 //usersDucks
 
 
 // usersLikes
-{
-  type: ADD_LIKE,
-  duckId,
-}
-
-{
-  type: REMOVE_LIKE,
-  duckId,
-}
-
-{
-  type: FETCHING_LIKES,
-}
-
-{
-  type: FETCHING_LIKES_ERROR,
-  error: 'Error fetching likes',
-}
-
-{
-  type: FETCHING_LIKES_SUCCESS,
-  likes,
-}
