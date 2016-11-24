@@ -1,4 +1,3 @@
-
 import { ref } from 'config/constants'
 
 function saveToDucks (duck) {
@@ -48,16 +47,14 @@ export function saveToUsersLikes (uid, duckId) {
 
 export function deleteFromUsersLikes (uid, duckId) {
   return ref.child(`usersLikes/${uid}/${duckId}`).set(null)
-
 }
 
-export function incrementNumberOfLikes (uid, duckId) {
+export function incrementNumberOfLikes (duckId) {
   return ref.child(`likeCount/${duckId}`)
-    .transation((currentValue = 0) => currentValue + 1)
-
+    .transaction((currentValue = 0) => currentValue + 1)
 }
 
 export function decrementNumberOfLikes (duckId) {
   return ref.child(`likeCount/${duckId}`)
-    .transation((currentValue = 0) => currentValue - 1)
+    .transaction((currentValue = 0) => currentValue - 1)
 }
