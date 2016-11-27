@@ -22,7 +22,7 @@ const DuckContainer = React.createClass({
   getDefaultProps () {
     return {
       hideReplyBtn: false,
-      hideLikeCount: true,
+      hideLikeCount: true
     }
   },
   goToProfile (e) {
