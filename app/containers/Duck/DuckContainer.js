@@ -27,11 +27,11 @@ const DuckContainer = React.createClass({
   },
   goToProfile (e) {
     e.stopPropagation()
-    this.context.router.push('/' + this.props.duck.uid)
+    this.context.router.push('/' + this.props.duck.get('uid'))
   },
   handleClick (e) {
     e.preventDefault()
-    this.context.router.push('/duckDetail/' + this.props.duck.duckId)
+    this.context.router.push('/duckDetail/' + this.props.duck.get('duckId'))
   },
   render () {
     return (
@@ -45,7 +45,7 @@ const DuckContainer = React.createClass({
 
 function mapStateToProps ({ducks, likeCount, usersLikes}, props) {
   return {
-    duck: ducks[props.duckId],
+    duck: ducks.get(props.duckId),
     hideLikeCount: props.hideLikeCount,
     hideReplyBtn: props.hideReplyBtn,
     isLiked: usersLikes[props.duckId] === true,
