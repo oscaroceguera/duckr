@@ -1,3 +1,5 @@
+import { Map } from 'immutable'
+
 const OPEN_MODAL = 'OPEN_MODAL'
 const CLOSE_MODAL = 'CLOSE_MODAL'
 const UPDATE_DUCK_TEXT = 'UPDATE_DUCK_TEXT'
@@ -21,28 +23,26 @@ export function updateDuckText (newDuckText) {
   }
 }
 
-const initialState = {
+const initialState = Map({
   duckText: '',
   isOpen: false,
-}
+})
 
 export default function modal (state = initialState, action) {
   switch (action.type) {
     case OPEN_MODAL :
-      return {
-        ...state,
+      return state.merge({
         isOpen: true,
-      }
+      })
     case CLOSE_MODAL :
-      return {
+      return state.merge({
         duckText: '',
         isOpen: false,
-      }
+      })
     case UPDATE_DUCK_TEXT :
-      return {
-        ...state,
+      return state.merge({
         duckText: action.newDuckText,
-      }
+      })
     default :
       return state
   }
